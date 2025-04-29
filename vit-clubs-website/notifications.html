@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - VIT Clubs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <!-- Same navbar content -->
+    </nav>
+
+    <!-- Notifications Header -->
+    <header class="notification-header py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center animate__animated animate__fadeIn">
+                    <h1>Your Notifications</h1>
+                    <p class="lead">Stay updated with club events and activities</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notifications Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Notification Filters -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Filters</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Club</label>
+                                <select class="form-select" id="clubFilter">
+                                    <option value="">All Clubs</option>
+                                    <option value="SAARTHI">SAARTHI</option>
+                                    <option value="EPEC">EPEC</option>
+                                    <option value="VISHWACONCLAVE">VISHWA CONCLAVE</option>
+                                    <option value="TRF">TRF</option>
+                                    <option value="VEDC">VEDC</option>
+                                    <option value="ChessClub">Chess Club</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Time Period</label>
+                                <select class="form-select" id="timeFilter">
+                                    <option value="all">All Time</option>
+                                    <option value="today">Today</option>
+                                    <option value="week">This Week</option>
+                                    <option value="month">This Month</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="card-title mb-0">Recent Notifications</h5>
+                                <button class="btn btn-outline-primary btn-sm" id="markAllRead">
+                                    Mark All as Read
+                                </button>
+                            </div>
+                            <div id="notificationsList" class="list-group">
+                                <!-- Notifications will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>VIT Clubs</h5>
+                    <p>Stay Connected</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="about.html" class="text-white me-3">About Us</a>
+                    <a href="contact.html" class="text-white">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            function formatDate(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+
+            function renderNotifications() {
+                const notifications = notificationSystem.getNotifications();
+                const clubFilter = $('#clubFilter').val();
+                const timeFilter = $('#timeFilter').val();
+
+                let filteredNotifications = notifications;
+
+                // Apply club filter
+                if (clubFilter) {
+                    filteredNotifications = filteredNotifications.filter(n => n.clubName === clubFilter);
+                }
+
+                // Apply time filter
+                const now = new Date();
+                if (timeFilter === 'today') {
+                    filteredNotifications = filteredNotifications.filter(n => {
+                        const date = new Date(n.timestamp);
+                        return date.toDateString() === now.toDateString();
+                    });
+                } else if (timeFilter === 'week') {
+                    const weekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+                    filteredNotifications = filteredNotifications.filter(n => {
+                        const date = new Date(n.timestamp);
+                        return date >= weekAgo;
+                    });
+                } else if (timeFilter === 'month') {
+                    const monthAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
+                    filteredNotifications = filteredNotifications.filter(n => {
+                        const date = new Date(n.timestamp);
+                        return date >= monthAgo;
+                    });
+                }
+
+                // Sort notifications by timestamp (newest first)
+                filteredNotifications.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+                const notificationsList = $('#notificationsList');
+                notificationsList.empty();
+
+                if (filteredNotifications.length === 0) {
+                    notificationsList.append(`
+                        <div class="text-center py-4">
+                            <i class="bi bi-bell-slash text-muted fs-1"></i>
+                            <p class="mt-2">No notifications to display</p>
+                        </div>
+                    `);
+                    return;
+                }
+
+                filteredNotifications.forEach(notification => {
+                    const notificationHtml = `
+                        <div class="list-group-item list-group-item-action animate__animated animate__fadeIn">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">${notification.title}</h6>
+                                <small class="text-muted">${formatDate(notification.timestamp)}</small>
+                            </div>
+                            <p class="mb-1">${notification.message}</p>
+                            <small class="text-primary">${notification.clubName}</small>
+                        </div>
+                    `;
+                    notificationsList.append(notificationHtml);
+                });
+            }
+
+            // Initial render
+            renderNotifications();
+
+            // Filter change handlers
+            $('#clubFilter, #timeFilter').on('change', renderNotifications);
+
+            // Mark all as read
+            $('#markAllRead').on('click', function() {
+                const notifications = notificationSystem.getNotifications();
+                notifications.forEach(notification => {
+                    notification.read = true;
+                });
+                localStorage.setItem('notifications', JSON.stringify(notifications));
+                renderNotifications();
+            });
+        });
+    </script>
+</body>
+</html>

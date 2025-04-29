@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - VIT Pune Clubs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
+        .application-form {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            margin-top: 100px;
+            margin-bottom: 50px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-control {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-container">
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="https://epecvitpune.in/wp-content/uploads/2024/01/EPEC-2024.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Navigation Bar (Same as index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <!-- Same navbar content as index.html -->
+    </nav>
+
+    <!-- Application Form -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="application-form animate__animated animate__fadeIn">
+                    <h2 class="text-center mb-4">Join a Club at VIT Pune</h2>
+                    <p class="text-center mb-4">Be part of our vibrant community and explore your interests!</p>
+                    
+                    <form id="applicationForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="club" class="form-label">Select Club</label>
+                            <select class="form-control" id="club" required>
+                                <option value="">Choose a club...</option>
+                                <option value="SAARTHI">SAARTHI - Mentorship Club</option>
+                                <option value="EPEC">EPEC - Engineering Projects</option>
+                                <option value="VISHWACONCLAVE">VISHWA CONCLAVE - Cultural Club</option>
+                                <option value="TRF">TRF - Technical Research Forum</option>
+                                <option value="VEDC">VEDC - Entrepreneurship Development</option>
+                                <option value="ChessClub">Chess Club</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="reason" class="form-label">Why do you want to join this club?</label>
+                            <textarea class="form-control" id="reason" rows="4" required></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Area -->
+    <div id="notificationArea" class="position-fixed top-0 end-0 p-3" style="z-index: 1050"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

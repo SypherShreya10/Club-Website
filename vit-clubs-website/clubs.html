@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clubs - VIT Pune</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .piece-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 100%;
+            transition: transform 0.2s;
+        }
+        .piece-card:hover {
+            transform: translateY(-5px);
+        }
+        .piece-card img {
+            transition: transform 0.3s;
+        }
+        .piece-card img:hover {
+            transform: scale(1.2);
+        }
+        .piece-card h5 {
+            color: #333;
+            margin: 10px 0;
+        }
+        .piece-card .small {
+            color: #666;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">VIT Pune Clubs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="clubs.html">Clubs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="apply.html">Apply</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="hero-content text-light">
+                        <h1 class="hero-title animate__animated animate__fadeInUp">Our Clubs</h1>
+                        <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Discover the diverse range of clubs at VIT Pune</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clubs Section -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Technical Clubs -->
+            <div class="club-section" id="tech">
+                <h2 class="text-center mb-5">Technical Clubs</h2>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/EPEC_photo.jpg" class="card-img-top" alt="EPEC Club">
+                            <div class="card-body">
+                                <h5 class="card-title">EPEC</h5>
+                                <p class="card-text">Event Planning and Execution Committee - Organizing major college events and fostering leadership skills.</p>
+                                <a href="EPEC.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/trf.jpg" class="card-img-top" alt="TRF Club">
+                            <div class="card-body">
+                                <h5 class="card-title">TRF</h5>
+                                <p class="card-text">Technical Research Forum - Promoting research and innovation in technology.</p>
+                                <a href="TRF.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/vedc.jpg" class="card-img-top" alt="VEDC Club">
+                            <div class="card-body">
+                                <h5 class="card-title">VEDC</h5>
+                                <p class="card-text">VIT Entrepreneurship Development Cell - Nurturing entrepreneurial spirit among students.</p>
+                                <a href="VEDC.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cultural Clubs -->
+            <div class="club-section" id="cultural">
+                <h2 class="text-center mb-5">Cultural Clubs</h2>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/vc.jpg" class="card-img-top" alt="Vishwa Conclave">
+                            <div class="card-body">
+                                <h5 class="card-title">Vishwa Conclave</h5>
+                                <p class="card-text">Promoting cultural exchange and organizing cultural festivals.</p>
+                                <a href="vishwa-conclave.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/zypher.jpg" class="card-img-top" alt="Dance Club">
+                            <div class="card-body">
+                                <h5 class="card-title">Dance Club</h5>
+                                <p class="card-text">Express yourself through various dance forms and performances.</p>
+                                <a href="DanceClub.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/aaroh.jpg" class="card-img-top" alt="Music Club">
+                            <div class="card-body">
+                                <h5 class="card-title">Music Club</h5>
+                                <p class="card-text">Explore your musical talents and perform at college events.</p>
+                                <a href="MusicClub.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports Clubs -->
+            <div class="club-section" id="sports">
+                <h2 class="text-center mb-5">Sports Clubs</h2>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/chess.jpg" class="card-img-top" alt="Chess Club">
+                            <div class="card-body">
+                                <h5 class="card-title">Chess Club</h5>
+                                <p class="card-text">Develop strategic thinking through chess tournaments and training.</p>
+                                <a href="ChessClub.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/sports1.jpg" class="card-img-top" alt="Sports Club">
+                            <div class="card-body">
+                                <h5 class="card-title">Sports Club</h5>
+                                <p class="card-text">Participate in various sports activities and competitions.</p>
+                                <a href="SportsClub.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="club-card">
+                            <img src="assets/images/fitness.jpg" class="card-img-top" alt="Fitness Club">
+                            <div class="card-body">
+                                <h5 class="card-title">Fitness Club</h5>
+                                <p class="card-text">Stay fit and healthy with workout sessions and fitness challenges.</p>
+                                <a href="FitnessClub.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="about.html" class="text-light">About</a></li>
+                        <li><a href="clubs.html" class="text-light">Clubs</a></li>
+                        <li><a href="apply.html" class="text-light">Apply</a></li>
+                        <li><a href="contact.html" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Featured Events</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="vishwa-conclave.html" class="text-light">Vishwa Conclave</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <p>VIT Pune<br>
+                    666, Upper Indira Nagar,<br>
+                    Bibwewadi, Pune - 411037</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 VIT Pune Clubs. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
